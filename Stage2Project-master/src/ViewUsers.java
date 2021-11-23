@@ -1,0 +1,80 @@
+import java.sql.*;
+import java.util.ArrayList;
+
+public class ViewUsers {
+    public static void main (String department)
+    {
+        //database connection
+        Connection conn = connect();
+        ArrayList<ArrayList<Object>> data;
+        try {
+            //search string
+            String sql = "SELECT User_Id,User_FName,User_LName,User_Email,User_Password,User_DOB,User_PhoneNumber,User_Role   FROM Users";
+
+            Statement stmt  = conn.createStatement();
+            data = new ArrayList<ArrayList<Object>>();
+
+            ResultSet res = stmt.executeQuery(sql);
+            {
+                while (res.next()) {
+                    int uID = res.getInt("User_Id");
+                    String uFName = res.getString("User_FName");
+                    String uLName = res.getString("User_LName");
+                    String uEmail = res.getString("User_Email");
+                    String uPassword = res.getString("User_Password");
+                    String uDOB = res.getString("User_DOB");
+                    String uPhoneNumber = res.getString("User_PhoneNumber");
+                    String uRole = res.getString("User_Role");
+
+                    ArrayList<Object> rec = new ArrayList<Object>();
+                    rec.add(uID);
+                    rec.add(uFName);
+                    rec.add(uLName);
+                    rec.add(uEmail);
+                    rec.add(uPassword);
+                    rec.add(uDOB);
+                    rec.add(uPhoneNumber);
+                    rec.add(uRole);
+
+                    data.add(rec);
+                }
+            }
+            printData(data);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
+
+    //Database connection function
+    private static Connection connect(){
+        String fileName = "Stage2Database.db";
+        String url = "jdbc:sqlite:" + fileName;
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(url);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return conn;
+    }
+
+    //function to display all the users to the user
+    public static void printData (ArrayList<ArrayList<Object>> data) {
+        System.out.print("User ID: User FName:  User LName:     User Email:           User Password:   User DOB:    User PhoneNumber:  User Role:\n");
+        for (int i = 0; i < data.size(); i++) {
+            for (int j = 0; j < data.get(i).size(); j++) {
+                System.out.print(data.get(i).get(j));
+                System.out.print("        ");
+            }
+            System.out.println();
+        }
+    }
+}
