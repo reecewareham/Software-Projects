@@ -1,0 +1,21 @@
+        Connection connection = DatabaseConnection();
+
+        String verifyLogin = "SELECT * FROM Users WHERE Email = '" + EmailTextField.getText() + "' AND Password = '" + passwordTextField.getText() + "'";
+
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet queryResult = statement.executeQuery(verifyLogin);
+
+            while(queryResult.next()){
+                if(queryResult.getInt(1) == 1){
+                    errorMessage.setText("Congratulations!");
+                }
+                else{
+                    errorMessage.setText("Invalid Login try again!");
+                }
+            }
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchor" prefHeight="469.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BUE.TeacherLectureController">
+   <children>
+      <ImageView fitHeight="469.0" fitWidth="660.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="https://i.imgur.com/2cSteUQ.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="ButtonTeacherViewAttendance" layoutX="20.0" layoutY="396.0" mnemonicParsing="false" onAction="#TeacherViewAttendanceOnAction" prefHeight="60.0" prefWidth="155.0" style="-fx-background-color: #e8e8e8;" text="View Attendance">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="QRGenerateButton" layoutX="237.0" layoutY="186.0" mnemonicParsing="false" onAction="#GenerateQROnAction" prefHeight="80.0" prefWidth="207.0" style="-fx-background-color: #e8e8e8;" text="Generate QR Code">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="ButtonTeacherNotifyStudents" layoutX="471.0" layoutY="397.0" mnemonicParsing="false" onAction="#ButtonTeacherNotifyStudentsOnAction" prefHeight="60.0" prefWidth="167.0" style="-fx-background-color: #e8e8e8;" text="Notify Student to Attend">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="ButtonTeacherLectureBack" layoutX="504.0" layoutY="26.0" mnemonicParsing="false" onAction="#ButtonTeacherLectureBackOnAction" prefHeight="51.0" prefWidth="125.0" style="-fx-background-color: #e8e8e8;" text="Back">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="17.0" layoutY="24.0" prefHeight="49.0" prefWidth="166.0" style="-fx-background-color: #ffffff;" text="Monday: 8:00AM Chemistry 2B" textAlignment="RIGHT" />
+      <Label fx:id="TeacherNotifyStudentsMessage" layoutX="513.0" layoutY="362.0" prefHeight="33.0" prefWidth="60.0" textFill="RED">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

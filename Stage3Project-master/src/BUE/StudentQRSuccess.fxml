@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchor" prefHeight="469.0" prefWidth="660.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BUE.StudentQRSuccessController">
+    <children>
+        <Button fx:id="BackButton" layoutX="555.0" layoutY="407.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="48.0" prefWidth="90.0" style="-fx-background-color: white;" text="Back">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Button>
+      <Label alignment="CENTER" layoutX="163.0" layoutY="160.0" prefHeight="75.0" prefWidth="335.0" style="-fx-background-color: white;" text="Successfully Registered">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>
